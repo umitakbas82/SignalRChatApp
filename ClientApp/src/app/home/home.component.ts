@@ -14,13 +14,13 @@ export class HomeComponent implements OnInit {
   constructor( private formbuilder:FormBuilder) { }
 
   ngOnInit(): void {
-    this.intializeForm();
+     this.intializeForm();
   }
 
 
   intializeForm(){
     this.userForm=this.formbuilder.group({
-      name:["",Validators.required,Validators.minLength(3),Validators.maxLength(15)]
+      name:["",[Validators.required,Validators.minLength(3),Validators.maxLength(15)]]
       
     })
     console.log("click")
