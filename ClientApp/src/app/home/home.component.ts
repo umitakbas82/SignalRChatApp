@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   userForm:FormGroup=new FormGroup({});
   submitted=false;
   apiErrorMessages:string[]=[];
-  openChat=true;
+  openChat=false;
   constructor( private formbuilder:FormBuilder, private service:ChatService) { }
 
   ngOnInit(): void {
