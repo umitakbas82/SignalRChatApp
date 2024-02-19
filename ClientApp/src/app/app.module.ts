@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@microsoft/signalr';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ChatComponent } from './chat/chat.component'
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http'
     NavbarComponent,
     HomeComponent,
     FooterComponent,
+    ChatComponent,
    
   ],
   imports: [

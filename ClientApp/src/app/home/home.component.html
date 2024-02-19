@@ -1,30 +1,41 @@
-<div class="text-center">
-    <h4>Let's talk</h4>
-</div>
+<body>
 
-<div class="d-flex justify-content-center">
-    <div class="col-12 col-lg-5">
-        <main class="form-singin">
-            <form [formGroup]="userForm" (ngSubmit)="submitForm()" autocomplete="off" action="" class="p-3 border mt-5">
-                <h5 class="text-center">Choose Your Nickname</h5>
-                <div class="form-floating mb-3">
-                    <input type="text" formControlName="name"  class="form-control " placeholder="Name" [class.is.invaild]="submitted && userForm.get('name')?.errors">
-                    <label for="name">Name</label>
-                    <span class="text-danger" *ngIf="submitted && userForm.get('name')?.hasError('required')">Please Choose Valid Name</span>
-                    <span class="text-danger" *ngIf="submitted && userForm.get('name')?.hasError('maxlength') || userForm.get('name')?.hasError('minlength')">Your name must be at laeast 3-15 characters</span>
-                </div>
-
-                <div class="form-floating" *ngIf="apiErrorMessages.length>0">
-                    <ul class="text-danger">
-                        <li *ngFor="let error of apiErrorMessages">
-                        {{error}}</li>
-                    </ul>
-                </div>
-                <div class="d-grid mt-4 px-4">
-                    <button class="btn btn-warning" type="submit" >Submit</button>
-                </div>
-            </form>
-            
-        </main>
+<ng-container *ngIf="openChat===false">
+    <div class="text-center">
+        <h4>Let's talk</h4>
     </div>
-</div>
+    
+    <div class="d-flex justify-content-center">
+        <div class="col-12 col-lg-5">
+            <main class="form-singin">
+                <form [formGroup]="userForm" (ngSubmit)="submitForm()" autocomplete="off" action="" class="p-3 border mt-5">
+                    <h5 class="text-center">Choose Your Nickname</h5>
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="name"  class="form-control " placeholder="Name" [class.is.invaild]="submitted && userForm.get('name')?.errors">
+                        <label for="name">Name</label>
+                        <span class="text-danger" *ngIf="submitted && userForm.get('name')?.hasError('required')">Please Choose Valid Name</span>
+                        <span class="text-danger" *ngIf="submitted && userForm.get('name')?.hasError('maxlength') || userForm.get('name')?.hasError('minlength')">Your name must be at laeast 3-15 characters</span>
+                    </div>
+    
+                    <div class="form-floating" *ngIf="apiErrorMessages.length>0">
+                        <ul class="text-danger">
+                            <li *ngFor="let error of apiErrorMessages">
+                            {{error}}</li>
+                        </ul>
+                    </div>
+                    <div class="d-grid mt-4 px-4">
+                        <button class="btn btn-warning" type="submit" >Submit</button>
+                    </div>
+                </form>
+                
+            </main>
+        </div>
+    </div>
+    
+</ng-container>
+
+<ng-container *ngIf="openChat===true">
+    <app-chat (closeChatEmitter)="closeChat()"></app-chat>
+</ng-container>
+    
+</body>

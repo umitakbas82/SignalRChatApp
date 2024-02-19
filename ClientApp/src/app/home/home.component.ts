@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   userForm:FormGroup=new FormGroup({});
   submitted=false;
   apiErrorMessages:string[]=[];
-  openChat=false;
+  openChat=true;
   constructor( private formbuilder:FormBuilder, private service:ChatService) { }
 
   ngOnInit(): void {
@@ -32,11 +32,14 @@ export class HomeComponent implements OnInit {
   submitForm(){
     this.submitted=true;
     this.apiErrorMessages =[];
-    
+
     if(this.userForm.valid){
       this.service.registerUser(this.userForm.value).subscribe({
         next:()=>{
-          console.log("OPEN CHAT")
+          this.service.myName=this.userForm.get('name')?.value;
+          this.openChat=true;
+          this.userForm.reset();
+          this.submitted=false;
         },
         error:error=>{
           if (typeof(error.error)!== 'object'){
@@ -46,5 +49,9 @@ export class HomeComponent implements OnInit {
       })
     }
 
+  }
+
+  closeChat(){
+    this.openChat=false;
   }
 }

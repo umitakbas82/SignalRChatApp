@@ -8,8 +8,9 @@ import { HubConnection } from '@microsoft/signalr';
   providedIn: 'root'
 })
 export class ChatService {
+  myName:string="";
 
-  private chatConnection?:HubConnection
+  //private chatConnection?:HubConnection
 
   constructor(private httpClient:HttpClient) { }
 
