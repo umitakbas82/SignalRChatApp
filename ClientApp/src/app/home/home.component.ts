@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   userForm:FormGroup=new FormGroup({});
   submitted=false;
   apiErrorMessages:string[]=[];
+  openChat=false;
   constructor( private formbuilder:FormBuilder, private service:ChatService) { }
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
   submitForm(){
     this.submitted=true;
     this.apiErrorMessages =[];
+    
     if(this.userForm.valid){
       this.service.registerUser(this.userForm.value).subscribe({
         next:()=>{
