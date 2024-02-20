@@ -23,5 +23,12 @@ public class ChatHub : Hub
         await Groups.RemoveFromGroupAsync(Context.ConnectionId, "SignalRChat");
         await base.OnDisconnectedAsync(exception);
     }
+
+   public async Task AddUserConnectionId(string name)
+    {
+        _chatService.AddUserConnecrionId(name, Context.ConnectionId);
+        var onlineUsers = _chatService.GetOnlineUsers();
+        await Clients.Groups("SignalRChat").SendAsync("OnlineUsers", onlineUsers);
+    }
 }
 

@@ -9,6 +9,7 @@ import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 })
 export class ChatService {
   myName:string="";
+  onlineUsers:string []=[];
 
   private chatConnection?:HubConnection
 
@@ -27,11 +28,20 @@ export class ChatService {
     })
 
     this.chatConnection.on('UserConnected',()=>{
-      console.log("the server called has here")
+      this.addUserConnectionId()
+      
+    })
+    this.chatConnection.on('OnlineUsers',(onlineUsers)=>{
+      this.onlineUsers=[...onlineUsers]
     })
   }
 
   stopChatConnection(){
     this.chatConnection?.stop().catch(error=>console.log(error))
+  }
+
+  async addUserConnectionId(){
+    return this.chatConnection?.invoke('AddUserConnectionId', this.myName).catch(error=>console.log(error))
+    
   }
 }
