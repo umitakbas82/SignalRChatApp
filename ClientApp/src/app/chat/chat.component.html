@@ -13,20 +13,14 @@
         <div class="card border-secondary mb-3">
             <div class="card-header h3 text-muted text-center">Users
                 <div class="card-body">
-                    <div class="row mt-1">
+                    <div class="row mt-1" *ngFor="let user of service.onlineUsers">
                         <div class="col">
                             <div class="d-grid">
-                                <button class="btn btn-success card-text btn-block" type="button">{{service.myName}}</button>
+                                <button class="btn btn-success card-text btn-block" type="button">{{user}}</button>
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-1">
-                        <div class="col">
-                            <div class="d-grid">
-                                <button class="btn btn-dark card-text btn-block" type="button">user2</button>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -37,66 +31,7 @@
         <div class="card-header h3 text-muted text-center">Messages</div>
         <div class="card-body" style="min-height: 600px;">
             <div style="overflow-y: auto; height: 550px;">
-            <p class="card-text">
-                <span class="text-primary">User1</span>
-                <span class="ml-1">Some Messages Here</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Some Messages Here</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
-            <p class="card-text">
-                <span class="text-primary">User2</span>
-                <span class="ml-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, sapiente nam veniam animi qui nostrum culpa fuga libero incidunt possimus magni, est doloremque nesciunt explicabo, sed vel nisi necessitatibus aspernatur!</span>
-            </p>
+           
         </div>
         </div>
         <div class="card-footer">
