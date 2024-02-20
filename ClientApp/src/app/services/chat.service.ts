@@ -19,10 +19,11 @@ export class ChatService {
   }
 
   createChatConnection(){
-    this.chatConnection=new HubConnectionBuilder().withUrl(`${environment.apiUrl})hubs/chat`).withAutomaticReconnect().build();
+    this.chatConnection=new HubConnectionBuilder()
+    .withUrl(`${environment.apiUrl}hubs/chat`).withAutomaticReconnect().build();
 
     this.chatConnection.start().catch(error=>{
-      console.log(error)
+      console.log(error);
     })
 
     this.chatConnection.on('UserConnected',()=>{
