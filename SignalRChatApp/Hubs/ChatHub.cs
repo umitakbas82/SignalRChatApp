@@ -21,14 +21,31 @@ public class ChatHub : Hub
     public override async Task OnDisconnectedAsync(Exception exception)
     {
         await Groups.RemoveFromGroupAsync(Context.ConnectionId, "SignalRChat");
+        var user = _chatService.GetUserByConnectionId(Context.ConnectionId);
+        _chatService.RemoveUserFromList(user);
+
+        await DisplayOnlineUsers();
         await base.OnDisconnectedAsync(exception);
+        //var onlineUsers = _chatService.GetOnlineUsers();
+        //await Clients.Groups("SignalRChat").SendAsync("OnlineUsers", onlineUsers);
+        //await base.OnDisconnectedAsync(exception);
+
+
     }
 
    public async Task AddUserConnectionId(string name)
     {
         _chatService.AddUserConnecrionId(name, Context.ConnectionId);
+        //var onlineUsers = _chatService.GetOnlineUsers();
+        //await Clients.Groups("SignalRChat").SendAsync("OnlineUsers", onlineUsers);
+        await DisplayOnlineUsers();
+    }
+
+    private async Task DisplayOnlineUsers()
+    {
         var onlineUsers = _chatService.GetOnlineUsers();
         await Clients.Groups("SignalRChat").SendAsync("OnlineUsers", onlineUsers);
+
     }
 }
 
