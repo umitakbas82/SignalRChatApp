@@ -26,9 +26,8 @@ public class ChatHub : Hub
 
         await DisplayOnlineUsers();
         await base.OnDisconnectedAsync(exception);
-        //var onlineUsers = _chatService.GetOnlineUsers();
-        //await Clients.Groups("SignalRChat").SendAsync("OnlineUsers", onlineUsers);
-        //await base.OnDisconnectedAsync(exception);
+
+
 
 
     }
