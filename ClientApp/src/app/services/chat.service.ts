@@ -33,11 +33,13 @@ export class ChatService {
     })
     this.chatConnection.on('OnlineUsers',(onlineUsers)=>{
       this.onlineUsers=[...onlineUsers]
+      console.log("KULLANICILAR", onlineUsers)
     })
   }
 
   stopChatConnection(){
     this.chatConnection?.stop().catch(error=>console.log(error))
+    console.log("SERVİSDEN GELEN CLOSE",this.chatConnection)
   }
 
   async addUserConnectionId(){

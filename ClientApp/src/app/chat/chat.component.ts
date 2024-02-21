@@ -12,15 +12,20 @@ export class ChatComponent implements OnInit,OnDestroy {
   constructor(public service:ChatService) { }
   ngOnDestroy(): void {
     this.service.stopChatConnection()
+    console.log("CHAT STOPPED, NGONDESTROY")
     
   }
 
   ngOnInit(): void {
     this.service.createChatConnection();
+    
   }
 
   backToHome(){
     this.closeChatEmitter.emit();
+    console.log("CHAT CLOSED")
   }
 
+
+  
 }

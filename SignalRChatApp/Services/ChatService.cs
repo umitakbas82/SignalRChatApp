@@ -24,7 +24,7 @@ namespace SignalRChatApp.Services
             }
         }
 
-        public void AddUserConnecrionId(string user,string connectionId)
+        public void AddUserConnectionId(string user,string connectionId)
         {
             lock(Users)
             {
